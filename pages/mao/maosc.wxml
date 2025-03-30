@@ -1,0 +1,48 @@
+<view class="course-container">
+  <!-- 背景容器 -->
+  <view class="background-wrapper">
+    <image class="background-image" src="/pages/img/123.jpg" mode="aspectFill" />
+  </view>
+
+  <!-- 主内容区域 -->
+  <view class="content-wrapper">
+    <!-- 课程选择区块 -->
+    <view class="course-picker-card">
+      <text class="course-picker-label">我的课程</text>
+      <picker 
+        name="wupin" 
+        bindchange="bindwupinChange"
+        value="{{courseindex}}" 
+        range="{{jilu}}" 
+        range-key="c_name"
+        class="course-picker"
+      >
+        <view class="picker-content">
+          <text class="selected-course">{{jilu[courseindex].c_name}}</text>
+          <image class="dropdown-icon" src="/assets/icons/icons8-arrow-down-50.png" />
+        </view>
+      </picker>
+    </view>
+
+    <!-- 操作区域 -->
+    <view class="action-area">
+      <button 
+        class="checkin-button"
+        type="primary" 
+        plain="{{false}}"
+        bindtap="shangchuan"
+        disabled="{{show}}"
+        hover-class="button-hover-effect"
+      >
+        立即签到
+      </button>
+      
+      <image 
+        class="preview-image" 
+        src="/pages/mao/scnu_icon.jpg"
+        bindtap="prview"
+        mode="aspectFit"
+      />
+    </view>
+  </view>
+</view>

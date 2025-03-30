@@ -1,0 +1,30 @@
+<view class="content">
+	<view class="header">花名册</view>
+	<view class="newContent">
+		<view class="newContent_info">
+			<view class="newContent_item" wx:for="{{recordList}}" wx:for-item="item"
+       data-index="{{item.s_id}}" bindtap="toUrl" wx:key="index" wx:if="{{recordList.length>0}}">
+				<view>
+					<view class="newContent_item_2">
+						<!-- <text>上课时间：{{item.times}}</text> -->
+						<text>姓名：{{item.s_name}}</text>
+					</view>
+					<view class="newContent_item_2">
+						<text>学号：{{item.s_id}}</text>
+						<text>班级：{{item.s_bj}}</text>
+					</view>
+					<!-- <view class="newContent_item_1">
+						<view class="newContent_item_1_left color2">日期：{{item.dqdate}}</view>
+					</view> -->
+        </view>
+        
+				<view class="ico_mh_img2"></view>
+			</view>
+			<view class="noth" wx:if="{{recordList.length==0}}">这儿啥都没有</view>
+    </view>
+    <view class="next">
+      <button class="btn" bind:tap="daochu">导出</button>
+    </view>
+	</view>
+
+</view>

@@ -1,0 +1,67 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/wode/wode",
+    
+    "pages/mao/maosc",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/register/register",
+    "pages/record/record",
+    "pages/toux/toux",
+    "pages/kaoqin/kaoqun",
+    "pages/kaoqin/newkaoqun/newkaoqun",
+    "pages/kechen/kechen",
+    "pages/kecbiao/kecbiao",
+    "pages/ckrl/ckrl",
+    "pages/hmc/hmc",
+    "pages/hmc/mx/mx",
+    "pages/hudong/hudong",
+    "pages/course-schedule/course-schedule",
+    "pages/courseDetails/courseDetails",
+    "pages/xuanke/xuankee",
+    "pages/newxuanke/xuanke",
+    "pages/tuike/tuike"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于考勤地点"
+    }
+  },
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "考勤互动系统",
+    "navigationBarBackgroundColor": "#ffffff"
+  },
+
+  "tabBar": {
+    "backgroundColor": "#0079d7",
+    "color": "#ffffff",
+    "selectedColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/mao/maosc",
+        "text": "首页",
+        "iconPath": "pages/img/tabBar_inde.png",
+        "selectedIconPath": "pages/img/inde_main_30.png"
+      },
+      {
+        "pagePath": "pages/wode/wode",
+        "text": "个人中心",
+        "iconPath": "pages/img/inde_main_39.png",
+        "selectedIconPath": "pages/img/index_s_07.png"
+      }
+    ]
+  },
+
+  "style": "v2",
+  "requiredPrivateInfos": [
+    "getLocation"
+  ],
+  "useExtendedLib": {
+    "weui": true
+  },
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents",
+  "componentFramework": "glass-easel"  
+}

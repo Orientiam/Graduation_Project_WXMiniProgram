@@ -1,0 +1,219 @@
+/* 优化后的样式 */
+:root {
+  --primary-color: #0079d7;
+  --secondary-color: #6c757d;
+  --success-color: #28a745;
+  --border-color: #e8e8e8;
+  --shadow-light: 0 2rpx 12rpx rgba(0,0,0,0.08);
+}
+
+.profile-edit-container {
+  min-height: 100vh;
+  background: #f8f9fa;
+}
+
+/* 标题栏 */
+.app-header {
+  padding: 32rpx;
+  background: linear-gradient(135deg, #0079d7, #0063b5);
+  box-shadow: var(--shadow-light);
+}
+
+.header-title {
+  font-size: 36rpx;
+  color: #fff;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* 表单卡片 */
+.form-card {
+  margin: 32rpx;
+  background: #fff;
+  border-radius: 16rpx;
+  box-shadow: var(--shadow-light);
+  padding: 24rpx;
+}
+
+/* 输入项 */
+.input-field {
+  margin-bottom: 32rpx;
+}
+
+.field-label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+
+.label-text {
+  font-size: 28rpx;
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+.label-icon {
+  width: 32rpx;
+  height: 32rpx;
+  margin-left: 12rpx;
+}
+
+.input-control {
+  width: 100%;
+  height: 80rpx;
+  padding: 0 24rpx;
+  font-size: 28rpx;
+  color: #2c3e50;
+  border: 2rpx solid var(--border-color);
+  border-radius: 8rpx;
+  transition: all 0.3s ease;
+}
+
+.input-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 8rpx rgba(0,121,215,0.1);
+}
+
+.input-control.disabled {
+  background: #f8f9fa;
+  color: #95a5a6;
+}
+
+/* 头像上传 */
+.avatar-uploader {
+  margin: 48rpx 0;
+  text-align: center;
+}
+
+.upload-guide {
+  padding: 48rpx;
+  border: 2rpx dashed var(--border-color);
+  border-radius: 16rpx;
+}
+
+.upload-icon {
+  width: 120rpx;
+  height: 120rpx;
+  margin-bottom: 24rpx;
+  opacity: 0.6;
+}
+
+.upload-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.step {
+  font-size: 24rpx;
+  color: #95a5a6;
+}
+
+.avatar-preview {
+  position: relative;
+  width: 240rpx;
+  height: 240rpx;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: var(--shadow-light);
+}
+
+.preview-image {
+  width: 100%;
+  height: 100%;
+}
+
+.reupload-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.5);
+  padding: 16rpx;
+}
+
+.reupload-icon {
+  width: 48rpx;
+  height: 48rpx;
+  filter: invert(1);
+}
+
+/* 操作按钮 */
+.action-bar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32rpx;
+  padding: 32rpx;
+}
+
+.action-btn {
+  height: 88rpx;
+  border-radius: 44rpx;
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.action-btn.primary {
+  background: linear-gradient(135deg, var(--primary-color), #0063b5);
+  color: rgb(7, 7, 7);
+  border: 2rpx solid var(--primary-color);
+}
+
+.action-btn.secondary {
+  width: 100%;
+  background: #fff;
+  color: var(--primary-color);
+  border: 2rpx solid var(--primary-color);
+}
+
+.btn-icon {
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 12rpx;
+}
+
+.loading-indicator {
+  width: 32rpx;
+  height: 32rpx;
+  border: 4rpx solid rgba(255,255,255,0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: rotate 1s linear infinite;
+  margin-left: 12rpx;
+}
+/* 新增选择器样式 */
+.picker-content {
+  width: 100%;
+  height: 80rpx;
+  padding: 0 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #2c3e50;
+  font-size: 28rpx;
+}
+
+.arrow-icon {
+  width: 40rpx;
+  height: 40rpx;
+  transition: transform 0.3s;
+  padding-right: 10%;
+}
+
+/* 选择器激活状态 */
+.picker-content:active {
+  opacity: 0.8;
+}
+
+.picker-content:active .arrow-icon {
+  transform: rotate(180deg);
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

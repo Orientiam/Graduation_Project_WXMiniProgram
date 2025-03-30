@@ -1,0 +1,80 @@
+<view class="course-selection-container">
+  <!-- 增强型标题 -->
+  <view class="selection-header">
+    <text class="header-title">课程选择</text>
+    <view class="header-toolbar">
+      <text class="course-count">可选课程：{{jilu.length}}门</text>
+      <view class="search-box">
+        <input 
+          class="search-input" 
+          placeholder="搜索课程..."
+          bindinput="handleSearch"
+        />
+        <image src="/assets/icons/icons8-search.png" class="search-icon"/>
+      </view>
+    </view>
+  </view>
+  <view class="course-list-container">
+  <!-- 课程列表 -->
+    <view class="course-list">
+      <!-- 表头 -->
+      <view class="list-header">
+        <text class="header-cell">课程编号</text>
+        <text class="header-cell">课程名称</text>
+        <text class="header-cell">授课教师</text>
+        <text class="header-cell">操作</text>
+      </view>
+
+      <!-- 数据行 -->
+      <view class="list-body">
+        <block wx:if="{{zc == 0}}">
+          <view 
+            class="course-item {{index % 2 === 0 ? 'even' : 'odd'}}"
+            wx:for="{{jilu}}"
+            wx:key="c_id"
+            hover-class="item-hover"
+          >
+            <text class="course-id">#{{item.c_id}}</text>
+            <view class="course-info">
+              <text class="course-name">{{item.c_name}}</text>
+              <text class="course-tag elective">选修课</text>
+            </view>
+            <view class="teacher-info">
+              <image class="avatar" src="{{item.avatar || '/assets/icons/icons8-teacher.png'}}"/>
+              <text>{{item.teacher}}</text>
+            </view>
+            <button 
+              class="select-btn {{item.selected ? 'selected' : ''}}"
+              bindtap="handleSelect"
+              data-item="{{item}}"
+              hover-class="btn-hover"
+              disabled="{{item.disabled}}"
+            >
+              {{item.selected ? '已选' : '选课'}}
+            </button>
+          </view>
+        </block>
+
+        <!-- 空状态 -->
+        <view class="empty-state" wx:else>
+          <image src="/icons/empty-course.svg" class="empty-icon"/>
+          <text class="empty-text">当前没有可选课程</text>
+          <text class="empty-subtext">请稍后再来查看或联系教务人员</text>
+        </view>
+        
+      </view>
+    </view>
+  </view>
+  <!-- 底部操作栏 -->
+  <view class="action-bar safe-area-inset-bottom">
+    <text class="selected-count">已选{{selectedCount}}门课程</text>
+    <button 
+      class="confirm-btn"
+      bindtap="handleConfirm"
+      disabled="{{selectedCount === 0}}"
+      enable="{{selectedCount > 0}}"
+    >
+      确认选课
+    </button>
+  </view>
+</view>

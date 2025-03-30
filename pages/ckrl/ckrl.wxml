@@ -1,0 +1,72 @@
+<view class="gallery-container">
+  <!-- 左侧照片列表 -->
+  <view class="gallery-sidebar">
+    <view 
+      wx:for="{{sz}}" 
+      wx:key="id" 
+      class="thumbnail-item {{activeIndex === index ? 'active' : ''}}"
+      bindtap="handleThumbnailTap" 
+      data-index="{{index}}"
+    >
+      <view class="thumbnail-wrapper">
+        <image
+        class="thumbnail-image {{activeIndex === index ? 'active-image' : ''}}"
+          src="{{item.image}}"
+          mode="aspectFill"
+          lazy-load
+          binderror="handleImageError"
+          data-index="{{index}}"
+        />
+        <!-- 加载状态指示 -->
+        <view class="loading-overlay" wx:if="{{!item.imageLoaded}}">
+          <image class="loading-spinner" src="/assets/icons/icons8-loading" />
+        </view>
+        <!-- 错误状态 -->
+        <view class="error-overlay" wx:if="{{item.imageError}}">
+          <image class="error-icon" src="/assets/icons/icons8-error.gif" />
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 右侧预览区 -->
+  <view class="gallery-main">
+    <!-- 大图预览 -->
+    <view class="preview-wrapper" catchtouchstart="handleTouchStart" catchtouchmove="handleTouchMove">
+      <image
+        class="preview-image"
+        src="{{selectedImage}}"
+        style="transform: scale({{scale}}); translateX({{offsetX}}px) translateY({{offsetY}}px)"
+        mode="widthFix"
+        binderror="handlePreviewError"
+      />
+    </view>
+
+    <!-- 控制工具栏 -->
+    <view class="toolbar">
+      <view class="toolbar-group">
+        <button class="tool-btn" bindtap="handleZoomOut">
+          <image src="/assets/icons/icons8-zoom-out-50.png" class="tool-icon" />
+        </button>
+        <text class="scale-text">{{Math.round(scale * 100)}}%</text>
+        <button class="tool-btn" bindtap="handleZoomIn">
+          <image src="/assets/icons/icons8-zoom-in-50.png" class="tool-icon" />
+        </button>
+      </view>
+      <view class="toolbar-group">
+        <button class="tool-btn" bindtap="handleReset">
+          <image src="/assets/icons/icons8-reset-50.png" class="tool-icon" />
+        </button>
+        <button class="tool-btn" bindtap="handleFullScreen">
+          <image src="/assets/icons/icons8-fullscreen-50.png" class="tool-icon" />
+        </button>
+      </view>
+    </view>
+
+    <!-- 空状态 -->
+    <view class="empty-preview" wx:if="{{!selectedImage}}">
+      <image class="empty-icon" src="/assets/icons/icons8-image.gif" />
+      <text class="empty-text">请选择左侧图片进行预览</text>
+    </view>
+  </view>
+</view>

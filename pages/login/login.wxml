@@ -1,0 +1,85 @@
+<form bindsubmit="formSubmit" report-submit='true'>
+  <view class="login-container">
+    <view class="auth-card">
+      <!-- 表单标题 -->
+      <view class="auth-header">
+        <text class="auth-title">用户登录</text>
+        <text class="auth-subtitle">欢迎使用校园服务平台</text>
+      </view>
+
+      <!-- 表单主体 -->
+      <view class="form-body">
+        <!-- 学号输入 -->
+        <view class="form-item">
+          <label class="form-label">学号/账号</label>
+          <input 
+            class="form-input"
+            placeholder="请输入学号或注册账号"
+            placeholder-class="input-placeholder"
+            name="username"
+            value="{{username}}"
+          />
+          <view class="input-border"></view>
+        </view>
+
+        <!-- 密码输入 -->
+        <view class="form-item">
+  <label class="form-label">登录密码</label>
+  <input
+    class="form-input"
+    placeholder="请输入登录密码"
+    password='{{passwordType}}'
+    name="pass"
+    placeholder-class="input-placeholder"
+    required
+  />
+  <view class="input-border"></view>
+  <!-- 添加密码可见切换按钮 -->
+  <view class="password-toggle" bindtap="togglePassword">
+    <image class="toggle-icon" src="/assets/icons/icons8-eyes-{{!isPasswordVisible ? 'open' : 'close'}}.png"/>
+  </view>
+</view>
+        <!-- 操作区域 -->
+        <view class="form-actions">
+          <button 
+            class="submit-btn"
+            type="primary"
+            form-type="submit"
+            hover-class="btn-hover"
+            loading="{{loading}}"
+          >立即登录
+          </button>
+          
+          <view class="action-links">
+            <navigator 
+              url="/pages/register/register?vshow=2"
+              class="link-item"
+              hover-class="link-hover"
+            >
+              忘记密码?
+            </navigator>
+            <text class="divider">|</text>
+            <navigator
+              url="/pages/register/register?vshow=1"
+              class="link-item"
+              hover-class="link-hover"
+            >
+              注册账号
+            </navigator>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 全局提示模态框 -->
+    <modal 
+      title="系统提示"
+      hidden="{{modalHidden2}}"
+      confirm-text="确定"
+      bindconfirm="handleModalConfirm"
+      bindcancel="modalCancel"
+    >
+      <view class="modal-content">{{message}}</view>
+    </modal>
+  </view>
+</form>

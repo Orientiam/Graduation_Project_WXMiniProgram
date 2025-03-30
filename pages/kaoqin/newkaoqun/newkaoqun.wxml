@@ -1,0 +1,38 @@
+<view class="title">驻场打卡</view>
+<view class="main">
+	<view class="section_one">
+		<view class="section_one_tit">拍摄上传人脸和标志性建筑图片</view>
+		<view class="section_one_begDate">
+			<label class="label">请选择上下班：
+			</label>
+			<picker bindchange="bindPickerChange2" class="input" id="park" name='park' value="{{park[index2]}}" range="{{park}}">
+				<view class="picker">
+				{{park[index2]}}
+				</view>
+				<image src='../../../img/menhu_14.png' class="ico_img"></image>
+			</picker>
+		</view>
+	</view>
+	<view class="section_two">
+		<view class="section_two_img1">
+			<view class="section_two_left" bindtap="uploadsfzZm">
+				<block wx:if="{{tempFilePaths}}">
+					<image src="{{tempFilePaths}}" class="imgsfz"></image>
+				</block>
+				<view class="icojiahao" wx:else></view>
+			</view>
+			<view class="section_two_right">
+				<view class="right_bottom color1" bindtap="clickuploadsfzZm" bindtap="chooseimage"><icon class="ico"></icon>  拍摄图片</view> 
+				<view class="right_bottom color2" bindtap="clickuploadsfzZm" bindtap="getaddre"><icon class="ico1"></icon>查看位置</view> 
+			</view>
+		</view>
+	</view>
+	<view class="section" style="padding:20rpx; font-size:28rpx">
+  <text class="text">{{ currentAddress }} {{ currestDesc }}</text>
+</view>
+	<button class="btn_sfz" bindtap='uploadimg' disabled='{{show}}'>提交</button>
+
+</view>
+<mp-dialog title="位置信息获取" show="{{showOneButtonDialog}}" bindbuttontap="tapDialogButton"  buttons="{{oneButton}}">
+    <view>打卡需获取位置信息</view>
+  </mp-dialog>

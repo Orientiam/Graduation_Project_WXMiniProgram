@@ -1,0 +1,174 @@
+/* 新增样式 */
+.container {
+  padding: 40rpx;
+  background: #f5f7fa;
+  min-height: 80vh;
+  box-sizing: border-box;
+}
+
+.header {
+  position: relative;
+  margin-bottom: 60rpx;
+  padding: 30rpx 0;
+}
+
+.title {
+  display: block;
+  text-align: center;
+  font-size: 40rpx;
+  color: #2c3e50;
+  font-weight: 600;
+  letter-spacing: 2rpx;
+  position: relative;
+  z-index: 2;
+}
+
+.title-decoration {
+  position: absolute;
+  bottom: 20rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120rpx;
+  height: 8rpx;
+  background: #0079d7;
+  border-radius: 4rpx;
+}
+
+.form-card {
+  background: #fff;
+  border-radius: 20rpx;
+  box-shadow: 0 10rpx 30rpx rgba(0,121,215,0.08);
+  padding: 0 30rpx;
+  margin-bottom: 40rpx;
+}
+
+.form-item {
+  padding: 40rpx 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid #eee;
+}
+
+.form-item:last-child {
+  border-bottom: none;
+}
+
+.form-label {
+  width: 180rpx;
+  font-size: 30rpx;
+  color: #34495e;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.form-label.required::after {
+  content: "*";
+  color: #e74c3c;
+  margin-left: 8rpx;
+  vertical-align: top;
+}
+
+.form-input {
+  flex: 1;
+  font-size: 30rpx;
+  color: #2c3e50;
+  height: 60rpx;
+  padding-right: 80rpx;
+  transition: all 0.3s ease;
+}
+
+.placeholder {
+  color: #95a5a6;
+  font-size: 28rpx;
+}
+
+.input-border {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2rpx;
+  background: #0079d7;
+  transition: all 0.3s ease;
+}
+
+.form-item:focus-within .input-border {
+  width: 100%;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 20rpx;
+  z-index: 2;
+}
+
+.eye-icon {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.action-buttons {
+  padding: 40rpx 0;
+  text-align: center;
+}
+
+.submit-btn {
+  width: 80%;
+  height: 90rpx;
+  line-height: 65rpx;
+  border-radius: 45rpx;
+  background: linear-gradient(135deg, #0079d7, #0063b5);
+  color: #fff;
+  font-size: 34rpx;
+  letter-spacing: 2rpx;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-hover {
+  opacity: 0.9;
+  transform: translateY(-2rpx);
+}
+
+.button-loading {
+  width: 40rpx;
+  height: 40rpx;
+  border: 4rpx solid rgba(255,255,255,0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: rotate 1s linear infinite;
+  position: absolute;
+  right: 40rpx;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.toast-message {
+  position: fixed;
+  bottom: 100rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+  padding: 20rpx 40rpx;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  max-width: 80%;
+  text-align: center;
+  animation: toastSlide 0.3s ease;
+}
+
+@keyframes toastSlide {
+  from { transform: translate(-50%, 20rpx); opacity: 0; }
+  to { transform: translate(-50%, 0); opacity: 1; }
+}

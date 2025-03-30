@@ -1,0 +1,117 @@
+/* 课程模块容器 */
+.course-container {
+  padding: 24rpx;
+  background: #f8f9fa;
+}
+
+/* 模块标题 */
+.course-header {
+  padding: 32rpx 0;
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #1a1a1a;
+  text-align: center;
+  background: #ffffff;
+  border-radius: 16rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 121, 215, 0.1);
+}
+
+/* 表格容器 */
+.course-table {
+  margin-top: 20rpx;
+  background: #ffffff;
+  border-radius: 16rpx;
+  overflow: hidden;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.08);
+}
+
+/* 表头样式 */
+.course-table__header {
+  display: flex;
+  padding: 24rpx 0;
+  background: #f8f9fa;
+  border-bottom: 2rpx solid #e9ecef;
+}
+
+/* 表格行 */
+.course-table__row {
+  width: 100%;
+  display: flex;
+  padding: 32rpx 0;
+  border-bottom: 1rpx solid #e9ecef;
+  transition: background 0.3s ease;
+}
+
+/* 表格行列公共样式 */
+.course-table__col_com {
+  flex: 1;
+  min-width: 0;
+  padding: 0 16rpx;
+  font-size: 28rpx;
+  color: #495057;
+  text-align: center;
+  line-height: 1.5;
+}
+.course-table__col_but{
+  flex: 1;
+  min-width: 0;
+  padding: 0 16rpx;
+  font-size: 28rpx;
+  color: #495057;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.course-table__row:active {
+  background: #f8f9fa;
+}
+
+/* 操作按钮样式 */
+
+.course-table__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8rpx 16rpx;  /* 减少内边距 */
+  font-size: 25rpx;     /* 缩小字体 */
+  border-radius: 6rpx;  /* 调小圆角 */
+  line-height: 1.2;
+  min-width: 10rpx; /* 减小最小宽度 */
+  max-width: 150rpx; /* 减小最小宽度 */
+  height: 56rpx;        /* 固定高度 */
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.course-table__btn--danger {
+  border-width: 1rpx;   /* 更细的边框 */
+  border-color: rgba(220, 53, 69, 0.4); /* 加深边框颜色 */
+  background: rgba(220, 53, 69, 0.1);
+  transform: scale(0.9); /* 更明显的点击反馈 */
+}
+
+/* 新增按钮图标样式 */
+.course-table__btn-icon {
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 8rpx;
+}
+
+/* 空状态样式 */
+.course-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 96rpx 0;
+}
+
+.course-empty__icon {
+  width: 160rpx;
+  height: 160rpx;
+  margin-bottom: 32rpx;
+  opacity: 0.8;
+}
+
+.course-empty__text {
+  font-size: 28rpx;
+  color: #6c757d;
+}

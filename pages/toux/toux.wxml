@@ -1,0 +1,109 @@
+<view class="profile-edit-container">
+  <!-- 标题栏 -->
+  <view class="app-header">
+    <text class="header-title">个人信息修改</text>
+  </view>
+
+  <form class="edit-form" bindsubmit="formSubmit" bindreset="formReset">
+    <!-- 表单内容区 -->
+    <view class="form-card">
+    <!-- 个人信息输入 -->
+    <view class="input-field" wx:for="{{fieldList}}" wx:key="name">
+      <view class="field-label">
+        <text class="label-text">{{item.label}}</text>
+        <image wx:if="{{item.icon}}" src="{{item.icon}}" class="label-icon" />
+    </view>
+    <!-- 政治面貌选择器 -->
+    <block wx:if="{{item.type === 'selector' && item.name === 'zzmm'}}">
+      <picker 
+        class="input-control"
+        mode="selector" 
+        range="{{item.range}}"
+        value="{{item.value}}"
+        bindchange="bindPickerChange"
+        data-name="{{item.name}}"
+      >
+        <view class="picker-content">
+          {{item.range[item.value] || item.placeholder}}
+          <image class="arrow-icon" src="/assets/icons/icons8-arrow-down-50.png" />
+        </view>
+      </picker>
+    </block>
+
+    <!-- 性别选择器 -->
+    <block wx:elif="{{item.type === 'selector' && item.name === 'xb'}}">
+      <picker 
+        class="input-control"
+        mode="selector" 
+        range="{{item.range}}"
+        value="{{item.value}}"
+        bindchange="bindPickerChange"
+        data-name="{{item.name}}"
+      >
+        <view class="picker-content">
+          {{item.range[item.value] || item.placeholder}}
+          <image class="arrow-icon" src="/assets/icons/icons8-arrow-down-50.png" />
+        </view>
+      </picker>
+    </block>
+
+    <!-- 其他输入项 -->
+    <block wx:else>
+      <input 
+        class="input-control {{item.disabled ? 'disabled' : ''}}"
+        placeholder="{{item.placeholder}}"
+        value="{{item.value}}"
+        name="{{item.name}}"
+        disabled="{{item.disabled}}"
+        type="{{item.type || 'text'}}"
+      />
+    </block>
+  </view>
+      <!-- 头像上传 -->
+      <view class="avatar-uploader">
+        <view class="upload-guide" wx:if="{{!tempFilePaths}}">
+          <image class="upload-icon" src="/assets/icons/icons8-avatar.png" />
+          <view class="upload-steps">
+            <text class="step">1. 点击下方按钮选择图片</text>
+            <text class="step">2. 支持JPG/PNG格式，建议尺寸1:1</text>
+          </view>
+        </view>
+        <view class="avatar-preview" wx:else>
+          <image 
+            class="preview-image" 
+            src="{{tempFilePaths}}" 
+            mode="aspectFill"
+            binderror="handleImageError"
+          />
+          <view class="reupload-overlay" bindtap="chooseimage">
+            <image class="reupload-icon" src="/assets/icons/icons8-camera.png" />
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 操作按钮 -->
+    <view class="action-bar">
+      <button 
+        class="action-btn secondary" 
+        bindtap="chooseimage"
+        hover-class="btn-hover"
+      >
+        <image class="btn-icon" src="/assets/icons/icons8-image.gif" />
+        选择图片
+      </button>
+      <button 
+        class="action-btn secondary" 
+        formType="submit"
+        hover-class="btn-hover"
+        bindtap="uploadimg"
+        disabled="{{show || !tempFilePaths}}"
+      >
+        <image class="btn-icon" src="/assets/icons/icons8-submit-progress.gif" />
+        {{isSubmitting ? '提交中...' : '保存修改'}}
+        <view class="loading-indicator" wx:if="{{isSubmitting}}"></view>
+      </button>
+    </view>
+
+  </form>
+</view>

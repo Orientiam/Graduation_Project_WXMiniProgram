@@ -1,0 +1,194 @@
+<!-- 优化后的沉浸式背景布局 -->
+<view class="profile-container">
+  <!-- 背景层尺寸优化 -->
+  <view class="profile-header">
+    <image 
+      class="header-bg" 
+      src="/assets/images/icons8-profile-50.png" 
+      mode="aspectFill"
+      style="height: {{headerHeight}}rpx;"
+    />
+    <view class="header-overlay"></view>
+  </view>
+
+  <!-- 优化后的用户信息模块 -->
+<view class="user-card">
+  <navigator 
+    url="/pages/toux/toux" 
+    class="user-info-link"
+    hover-class="none"
+  >
+    <view class="user-info">
+      <!-- 头像容器 (黄金比例 1:1) -->
+      <view class="avatar-container">
+        <image 
+          class="user-avatar" 
+          src="{{img}}" 
+          mode="aspectFill"
+        />
+      </view>
+      
+      <!-- 用户详情 (黄金分割比例 0.618) -->
+      <view class="user-details">
+        <!-- 主名称 (视觉焦点) -->
+        <text decode="{{true}}" class="user-name">&ensp;&ensp;{{usercode001}}&ensp;&ensp;  {{xy}}</text>
+        
+        <!-- 元信息 (次级信息) -->
+        <view class="user-meta">
+          <text class="meta-item meta-item--primary">{{user}}</text>
+          <text 
+            class="meta-item meta-item--secondary" 
+            wx:if="{{nj}}"
+          >{{nj}}级 · {{bj}}班</text>
+        </view>
+      </view>
+    </view>
+  </navigator>
+</view>
+
+  <!-- 功能导航区域 -->
+  <view class="nav-list">
+    <!-- 考勤记录 -->
+    <navigator 
+      url="/pages/record/record" 
+      class="nav-item"
+      hover-class="nav-item--hover"
+    >
+      <view class="nav-content">
+        <image class="nav-icon" src="/assets/icons/icons-attendance.png"/>
+        <text class="nav-title">考勤记录</text>
+        <image class="nav-arrow" src="/assets/icons/icons8-arrow-right-50.png"/>
+      </view>
+    </navigator>
+
+    <!-- 修改密码 -->
+    <navigator 
+      url="/pages/register/register?vshow=3" 
+      class="nav-item"
+      hover-class="nav-item--hover"
+    >
+      <view class="nav-content">
+        <image class="nav-icon" src="/assets/icons/icons8-password-50.png"/>
+        <text class="nav-title">修改密码</text>
+        <image class="nav-arrow" src="/assets/icons/icons8-arrow-right-50.png"/>
+      </view>
+    </navigator>
+
+    <!-- 人脸录入 -->
+    <navigator 
+      url="/pages/kaoqin/kaoqun" 
+      class="nav-item"
+      hover-class="nav-item--hover"
+    >
+      <view class="nav-content">
+        <image class="nav-icon" src="/assets/icons/icons8-face-recognition-50.png"/>
+        <text class="nav-title">人脸录入</text>
+        <image class="nav-arrow" src="/assets/icons/icons8-arrow-right-50.png"/>
+      </view>
+    </navigator>
+
+    <!-- 人脸查看 -->
+    <navigator 
+      url="/pages/ckrl/ckrl" 
+      class="nav-item"
+      hover-class="nav-item--hover"
+    >
+      <view class="nav-content">
+        <image class="nav-icon" src="/assets/icons/icons8-poker-face-50.png"/>
+        <text class="nav-title">人脸查看</text>
+        <image class="nav-arrow" src="/assets/icons/icons8-arrow-right-50.png"/>
+      </view>
+    </navigator>
+
+    <!-- 课程表 -->
+    <navigator 
+      url="/pages/kechen/kechen" 
+      class="nav-item"
+      hover-class="nav-item--hover"
+    >
+      <view class="nav-content">
+        <image class="nav-icon" src="/assets/icons/icons8-schedule-50.png"/>
+        <text class="nav-title">课程表</text>
+        <image class="nav-arrow" src="/assets/icons/icons8-arrow-right-50.png"/>
+      </view>
+    </navigator>
+
+    <!-- 已选课程 -->
+    <navigator 
+      url="/pages/tuike/tuike" 
+      class="nav-item"
+      hover-class="nav-item--hover"
+    >
+      <view class="nav-content">
+        <image class="nav-icon" src="/assets/icons/icons8-course-assign-50.png"/>
+        <text class="nav-title">已选课程</text>
+        <image class="nav-arrow" src="/assets/icons/icons8-arrow-right-50.png"/>
+      </view>
+    </navigator>
+
+    <!-- 可选课程 -->
+    <navigator 
+      url="/pages/newxuanke/xuanke" 
+      class="nav-item"
+      hover-class="nav-item--hover"
+    >
+      <view class="nav-content">
+        <image class="nav-icon" src="/assets/icons/icons8-elective-50.png"/>
+        <text class="nav-title">可选课程</text>
+        <image class="nav-arrow" src="/assets/icons/icons8-arrow-right-50.png"/>
+      </view>
+    </navigator>
+
+    <!-- 花名册 (条件渲染) -->
+    <block wx:if="{{flag == 1}}">
+      <navigator 
+        url="/pages/hmc/hmc" 
+        class="nav-item"
+        hover-class="nav-item--hover"
+      >
+        <view class="nav-content">
+          <image class="nav-icon" src="/assets/icons/icons8-shortlist-50.png"/>
+          <text class="nav-title">花名册</text>
+          <image class="nav-arrow" src="/assets/icons/icons8-arrow-right-50.png"/>
+        </view>
+      </navigator>
+    </block>
+
+    <!-- 互动 -->
+    <navigator 
+      url="/pages/hudong/hudong" 
+      class="nav-item"
+      hover-class="nav-item--hover"
+    >
+      <view class="nav-content">
+        <image class="nav-icon" src="/assets/icons/icons8-interaction-50.png"/>
+        <text class="nav-title">互动</text>
+        <image class="nav-arrow" src="/assets/icons/icons8-arrow-right-50.png"/>
+      </view>
+    </navigator>
+
+    <!-- 退出登录 -->
+    <view 
+      class="nav-item nav-item--logout" 
+      bindtap="showLogoutConfirm"
+    >
+      <view class="nav-content">
+        <image class="nav-icon" src="/assets/icons/icons8-logout-50.png"/>
+        <text class="nav-title">退出登录</text>
+        <image class="nav-arrow" src="/assets/icons/icons8-arrow-right-50.png"/>
+      </view>
+    </view>
+  </view>
+
+  <!-- 全局弹窗组件 -->
+  <modal
+    id="logoutModal" 
+    title="确认退出" 
+    content="确定要退出当前账号吗？"
+    hidden="{{hiddenModal}}"
+    confirm-text="确认退出"
+    cancel-text="取消"
+    bindconfirm="handleLogout"
+    bindcancel="handleCancelLogout"
+  />
+</view>

@@ -1,0 +1,232 @@
+/* 设计变量 */
+/* 尺寸协调系统 */
+:root {
+  --avatar-size: 120rpx;          /* 黄金基数 */
+  --name-font-size: 36rpx;        /* 基数 × 0.3 */
+  --meta-font-size: 28rpx;        /* 基数 × 0.233 */
+  --spacing-unit: 8rpx;           /* 基础间距单位 */
+  --header-base-height: 320rpx;   /* 黄金比例基数 */
+  --card-overlap: 80rpx;          /* 卡片覆盖量 (基数 × 0.25) */
+  --card-padding: 24rpx;          /* 基数 × 0.075 */
+  --radius-base: 16rpx;           /* 统一圆角 */
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  padding: calc(var(--spacing-unit) * 4); /* 32rpx */
+}
+
+/* 头像容器 */
+/* 修改后 (添加尺寸保险) */
+.avatar-container {
+  width: 150rpx !important;
+  height: 150rpx !important;
+  min-width: 120rpx;
+  min-height: 120rpx;
+  border-radius: 16rpx;
+  overflow: hidden; /* 关键属性 */
+}
+
+.user-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 16rpx; /* 与卡片圆角一致 */
+  box-shadow: 0 4rpx 16rpx rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+
+.user-avatar:active {
+  transform: scale(0.96);
+}
+
+/* 用户详情 */
+.user-details {
+  margin-left: calc(var(--spacing-unit) * 4); /* 32rpx */
+  flex: 1;
+  min-width: 0; /* 防止文本溢出 */
+}
+
+.user-name {
+  font-size: var(--name-font-size);
+  font-weight: 600;
+  color: #17233d;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+
+.user-meta {
+  margin-top: calc(var(--spacing-unit) * 1); /* 8rpx */
+  display: flex;
+  flex-direction: column;
+}
+
+.meta-item {
+  font-size: var(--meta-font-size);
+  line-height: 1.6;
+}
+
+.meta-item--primary {
+  color: #2d8cf0; /* 主品牌色 */
+}
+
+.meta-item--secondary {
+  color: #808695;
+  opacity: 0.9;
+}
+
+/* 容器样式 */
+.profile-container {
+  position: relative;
+  min-height: 100vh;
+  background: #f1f3f7;
+}
+
+.profile-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 320rpx;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.bg-gradient {
+  width: 100%;
+  height: 100%;
+  filter: blur(20rpx);
+  opacity: 0.96;
+}
+.profile-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+/* 沉浸式背景 */
+.profile-header {
+  height: calc(var(--header-base-height) + var(--card-overlap));
+  position: relative;
+  overflow: hidden;
+}
+
+.header-bg {
+  width: 100%;
+  height: 100%;
+  filter: brightness(0.88) contrast(1.1);
+}
+
+.header-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg, 
+    rgba(0,0,0,0.12) 0%, 
+    rgba(255,255,255,0.08) 100%
+  );
+}
+
+/* 用户信息卡 */
+.user-card {
+  position: relative;
+  z-index: 1;
+  margin: 40rpx;
+  padding: 32rpx;
+  background: rgba(255,255,255,0.96);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(20rpx);
+  box-shadow: 0 12rpx 48rpx rgba(0,0,0,0.08);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  border: 4rpx solid #fff;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.avatar:active {
+  transform: scale(0.96);
+}
+
+.user-meta {
+  margin-left: 32rpx;
+}
+
+.username {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.user-detail {
+  margin-top: 8rpx;
+}
+
+.detail-item {
+  display: block;
+  font-size: 28rpx;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* 导航项 */
+.nav-container {
+  margin: 0 40rpx 40rpx;
+}
+
+.nav-item {
+  background: #fff;
+  border-radius: var(--border-radius);
+  margin-bottom: 20rpx;
+  transition: var(--transition);
+}
+
+.nav-item--hover {
+  background: #f8f9fb;
+  transform: translateY(-2rpx);
+}
+
+.nav-content {
+  display: flex;
+  align-items: center;
+  padding: 28rpx 32rpx;
+}
+
+.nav-icon {
+  width: 48rpx;
+  height: 48rpx;
+  margin-right: 24rpx;
+}
+
+.nav-text {
+  flex: 1;
+  font-size: 32rpx;
+  color: var(--text-primary);
+}
+
+.nav-arrow {
+  width: 32rpx;
+  height: 32rpx;
+  opacity: 0.6;
+}
+
+/* 退出登录特殊样式 */
+.logout .nav-text {
+  color: #ed4014;
+}

@@ -1,0 +1,31 @@
+<view class="title">选课</view>
+<view class="section it_group">
+  <text decode="true">&emsp;&emsp; 课程编号&emsp; 课程名称 &emsp;&emsp; 授课老师&emsp;&emsp;&emsp; 操作 </text>
+
+</view>
+<!-- <view class="section" wx:for="{{jilu}}">
+  <block wx:if="{{zc==0}}">
+    <view class="it_group">
+      <text decode="true">【{{jilu[[index]].c_id}}】&emsp; {{jilu[[index]].c_name}}&emsp;&emsp;{{jilu[[index]].teacher}}&emsp;&emsp;&emsp; <text class="btn" style="color: blue;"> 选课 </text> </text>
+    </view>
+  </block>
+</view> -->
+<view class="container">
+  <block wx:if="{{zc==0}}" wx:for="{{jilu}}" wx:key="c_id">
+    <view class="box">
+      <!-- <text class="text" decode="true">【{{jilu[[index]].c_id}}】&emsp; {{jilu[[index]].c_name}}&emsp;&emsp;{{jilu[[index]].teacher}}&emsp;&emsp;&emsp; <text class="btn" style="color: blue;"> 选课 </text> </text> -->
+     <text decode="true">
+      <text class="text"decode="true" > 【{{jilu[[index]].c_id}}】&emsp;</text>
+      <text class="text"decode="true" > {{jilu[[index]].c_name}}&emsp;&emsp; &emsp;</text>
+      <text class="text" decode="true"> {{jilu[[index]].teacher}} &emsp;&emsp;&emsp;</text>
+     
+      </text>
+      <button class="btn" style="color: blue;"
+       data-item-id="{{jilu[index].c_id}}" bind:tap="xuanke"> 选课 </button>
+    </view>
+  </block>
+</view>
+
+<block wx:if="{{zc==1}}">
+  <view><text>暂无数据</text></view>
+</block>

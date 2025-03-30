@@ -1,0 +1,137 @@
+/* 基础变量 */
+:root {
+  --primary-color: #0079d7;
+  --button-gradient: linear-gradient(135deg, #0079d7, #00a1ff);
+  --text-primary: #2c3e50;
+  --text-secondary: #7f8c8d;
+  --border-radius-base: 16rpx;
+  --shadow-base: 0 8rpx 24rpx rgba(0,121,215,0.12);
+}
+
+/* 容器样式 */
+.course-container {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.background-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.background-image {
+  width: 100%;
+  height: 100%;
+  filter: brightness(0.96);
+}
+
+.content-wrapper {
+  position: relative;
+  z-index: 1;
+  padding: 40rpx;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 课程选择器 */
+.course-picker-card {
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(20rpx);
+  border-radius: var(--border-radius-base);
+  box-shadow: var(--shadow-base);
+  padding: 32rpx;
+  margin-top: 120rpx;
+}
+
+.course-picker-label {
+  display: block;
+  font-size: 32rpx;
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: 24rpx;
+  padding-left: 8rpx;
+}
+
+.course-picker {
+  position: relative;
+}
+
+.picker-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 96rpx;
+  padding: 0 24rpx;
+  border: 2rpx solid #e0e0e0;
+  border-radius: 8rpx;
+  transition: all 0.3s ease;
+}
+
+.picker-content:active {
+  border-color: var(--primary-color);
+}
+
+.selected-course {
+  font-size: 30rpx;
+  color: var(--text-primary);
+  max-width: 80%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dropdown-icon {
+  width: 36rpx;
+  height: 36rpx;
+  opacity: 0.6;
+}
+
+/* 按钮区域 */
+.action-area {
+  margin-top: auto;
+  padding: 40rpx 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.checkin-button {
+  width: 70%;
+  height: 96rpx;
+  line-height: 70rpx;
+  border-radius: 48rpx;
+  font-size: 34rpx;
+  font-weight: 500;
+  background: var(--button-gradient);
+  box-shadow: var(--shadow-base);
+  transition: all 0.3s ease;
+}
+
+.checkin-button[disabled] {
+  opacity: 0.6;
+  filter: grayscale(0.5);
+}
+
+.button-hover-effect {
+  opacity: 0.9;
+  transform: translateY(-2rpx);
+}
+
+/* 预览图片 */
+.preview-image {
+  width: 240rpx;
+  height: 240rpx;
+  border-radius: var(--border-radius-base);
+  margin-top: 40rpx;
+  border: 2rpx solid rgba(0,121,215,0.1);
+  box-shadow: var(--shadow-base);
+  background: white;
+  padding: 8rpx;
+}

@@ -1,0 +1,73 @@
+<!-- 考勤记录模块 -->
+<view class="attendance-container">
+  <!-- 标题区域 -->
+  <view class="attendance-header">
+    <text class="attendance-title">考勤记录</text>
+    <view class="attendance-filter">
+      <text class="filter-text">最近30天</text>
+      <image class="filter-icon" src="/assets/icons/icons8-filter-50.png" />
+    </view>
+  </view>
+
+  <!-- 加载状态 -->
+  <view wx:if="{{loading}}" class="skeleton-container">
+    <view class="skeleton-item" wx:for="{{6}}"></view>
+  </view>
+
+  <!-- 数据列表 -->
+  <scroll-view 
+    wx:elif="{{jilu.length > 0}}" 
+    class="attendance-list"
+    scroll-y
+    enable-back-to-top
+    bindscrolltolower="loadMore"
+  >
+    <view 
+      class="attendance-card"
+      wx:for="{{jilu}}"
+      wx:for-item="item"
+      wx:key="id"
+      data-id="{{jilu.id}}"
+      bindtap="onItemClick"
+      hover-class="card-hover"
+    >
+      <view class="card-header">
+        <text class="course-name">{{jilu[[index]].course}}</text>
+        <view class="status-badge {{item.result === '已签到' ? 'status-badge--success' : item.result === '迟到' ? 'status-badge--warning' : 'status-badge--error'}}">
+          {{item.result}}
+        </view>
+      </view>
+      <view class="card-body">
+        <view class="info-row">
+          <image class="info-icon" src="/assets/icons/icons8-clock-50.png" />
+          <text class="info-text">{{item.time}}</text>
+        </view>
+        <view class="info-row">
+          <image class="info-icon" src="/assets/icons/icons8-location-50.png" />
+          <text class="info-text">{{item.location || '未知地点'}}</text>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 加载更多 -->
+    <view wx:if="{{hasMore}}" class="load-more">
+      <view class="loading-dots">
+        <view class="dot"></view>
+        <view class="dot"></view>
+        <view class="dot"></view>
+      </view>
+      <text class="load-text">加载更多记录</text>
+    </view>
+  </scroll-view>
+
+  <!-- 空状态 -->
+  <view 
+    wx:else 
+    class="empty-state"
+    bindtap="refreshList"
+  >
+    <image class="empty-icon" src="/assets/icons/icons8-empty-50.png" />
+    <text class="empty-text">暂时没有考勤记录</text>
+    <text class="empty-hint">点击刷新或尝试其他筛选条件</text>
+  </view>
+</view>

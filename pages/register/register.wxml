@@ -1,0 +1,105 @@
+<view class="container">
+  <!-- 标题部分增加装饰性元素 -->
+  <view class="header">
+    <text class="title">{{title}}</text>
+    <view class="title-decoration"></view>
+  </view>
+
+  <form class="form-container" bindsubmit="formSubmit" bindreset="formReset">
+    <!-- 表单内容区增加卡片式设计 -->
+    <view class="form-card">
+      <!-- 统一表单项结构 -->
+      <view class="form-item">
+        <text class="form-label required">学号</text>
+        <input 
+          class="form-input" 
+          placeholder="请输入10位学号"
+          placeholder-class="placeholder"
+          name="account"
+          type="number"
+          maxlength="10"
+          required
+        />
+        <view class="input-border"></view>
+      </view>
+
+      <view class="form-item">
+        <text class="form-label required">姓名</text>
+        <input
+          class="form-input"
+          placeholder="请输入真实姓名"
+          placeholder-class="placeholder"
+          name="username"
+          maxlength="20"
+          required
+        />
+        <view class="input-border"></view>
+      </view>
+
+      <view class="form-item">
+        <text class="form-label">职务</text>
+        <input
+          class="form-input"
+          placeholder="选填，请输入职务"
+          placeholder-class="placeholder"
+          name="zw"
+          maxlength="20"
+        />
+        <view class="input-border"></view>
+      </view>
+
+      <!-- 密码输入增加可见性切换 -->
+      <view class="form-item">
+        <text class="form-label required">密码</text>
+        <input
+          class="form-input"
+          password='{{passwordType1}}'
+          name="password"
+          placeholder="8-16位数字密码"
+          placeholder-class="placeholder"
+          maxlength="16"
+          required
+        />
+        <view class="password-toggle" bindtap="togglePasswordVisibility1">
+          <image src="/assets/icons/icons8-eyes-{{isPasswordVisible1 ? 'open' : 'close'}}.png" class="eye-icon"/>
+        </view>
+        <view class="input-border"></view>
+      </view>
+      <!-- 确认密码输入增加可见性切换 -->
+      <view class="form-item">
+        <text class="form-label required">确认密码</text>
+        <input
+          class="form-input"
+          password='{{passwordType2}}'
+          name="password2"
+          placeholder="请再次输入密码"
+          placeholder-class="placeholder"
+          maxlength="16"
+          required
+        />
+        <view class="password-toggle" bindtap="togglePasswordVisibility2">
+          <image src="/assets/icons/icons8-eyes-{{isPasswordVisible2 ? 'open' : 'close'}}.png" class="eye-icon"/>
+        </view>
+        <view class="input-border"></view>
+      </view>
+    </view>
+
+    <!-- 操作按钮组 -->
+    <view class="action-buttons">
+      <button 
+        class="submit-btn" 
+        formType="submit"
+        hover-class="btn-hover"
+        hover-stay-time="100"
+      >
+        提交信息
+        <view class="button-loading" wx:if="{{isSubmitting}}"></view>
+      </button>
+    </view>
+  </form>
+
+  <!-- 全局提示 -->
+  <view class="toast-message" wx:if="{{showToast}}">
+    {{toastMessage}}
+  </view>
+</view>

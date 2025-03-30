@@ -1,0 +1,71 @@
+<view class="upload-container">
+  <!-- 图片上传模块 -->
+  <view class="upload-card">
+    <view class="upload-header">人脸识别认证</view>
+    
+    <!-- 图片上传区域 -->
+    <view class="upload-area" bindtap="chooseimage">
+      <block wx:if="{{!tempFilePaths}}">
+        <image class="upload-icon" src="/assets/icons/icons8-upload-50.png" />
+        <text class="upload-tips">点击上传人脸照片\n建议尺寸：300×258像素</text>
+      </block>
+      
+      <block wx:else>
+        <image 
+          class="preview-image" 
+          src="{{tempFilePaths}}" 
+          mode="aspectFill"
+          bindload="onImageLoad"
+        />
+        <view class="reupload-mask">重新上传</view>
+      </block>
+    </view>
+
+    <!-- 位置信息展示 -->
+    <view class="location-card {{locationError ? 'error' : ''}}">
+      <image class="location-icon" src="/assets/icons/location-{{locationError ? 'fail' : 'success'}}.png" />
+      <view class="location-info">
+        <text class="location-title">当前定位信息</text>
+        <text class="location-detail">{{ currentAddress || '正在获取定位...' }}</text>
+        <text class="location-desc">{{ currestDesc }}</text>
+      </view>
+      <!--button 
+        class="refresh-btn" 
+        bindtap="refreshLocation"
+        hover-class="btn-hover"
+        hover-stay-time="100"
+      >
+        <image src="/icons/refresh.svg" class="refresh-icon" />
+      </button-->
+    </view>
+
+    <!-- 操作按钮组 -->
+    <view class="action-group">
+      <button 
+        class="action-btn primary" 
+        bindtap="uploadimg" 
+        disabled="{{show || !tempFilePaths}}"
+        hover-class="btn-hover"
+        hover-stay-time="100"
+      >
+        {{ isSubmitting ? '提交中...' : '提交认证' }}
+        <view class="action-btn primary" wx:if="{{isSubmitting}}"></view>
+      </button>
+      
+      <button 
+        class="action-btn secondary" 
+        bindtap="chooseimage"
+        hover-class="btn-hover"
+        hover-stay-time="100"
+      >
+        重新拍摄
+      </button>
+    </view>
+  </view>
+
+  <!-- 全局提示 -->
+  <!--view class="toast-message" wx:if="{{showToast}}">
+    <image src="/icons/toast-{{toastType}}.svg" class="toast-icon" />
+    {{toastMessage}}
+  </view-->
+</view>

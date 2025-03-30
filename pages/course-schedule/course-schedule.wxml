@@ -1,0 +1,35 @@
+<!-- course-schedule.wxml -->  
+<view class="container">  
+  <block wx:for="{{weekDays}}" wx:key="index">  
+    <view class="day-container">  
+      <text class="day-title">{{item}}</text>  
+      <view><text>上午</text></view>
+      <view class="morning-schedule">  
+        <block wx:for="{{morningClasses}}" wx:key="index">  
+          <view class="class-item " bindtap="viewCourseDetails" data-course="{{morningClasses[index]}}">  
+            <text>{{morningClasses[index].name}}</text>  
+          </view>  
+        </block>  
+      </view>  
+      <view>
+      <text>下午</text>
+      </view>
+      <view class="afternoon-schedule xiawu">  
+        <block wx:for="{{afternoonClasses}}" wx:key="index">  
+          <view class="class-item " bindtap="viewCourseDetails" data-course="{{afternoonClasses[index]}}">  
+            <text>{{afternoonClasses[index].name}}</text>  
+          </view>  
+        </block>  
+      </view>  
+    </view>  
+  </block>  
+    
+  <!-- Modal for Course Details -->  
+  <view class="modal" wx:if="{{showModal}}">  
+    <view class="modal-content">  
+      <text class="modal-title">{{selectedCourse.name}}</text>  
+      <text class="modal-desc">{{selectedCourse.description}}</text>  
+      <button bindtap="closeModal">关闭</button>  
+    </view>  
+  </view>  
+</view>

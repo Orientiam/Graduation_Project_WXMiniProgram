@@ -1,0 +1,374 @@
+/* 新增样式 */
+:root {
+  --primary-color: #0079d7;
+  --success-color: #52c41a;
+  --error-color: #ff4d4f;
+  --text-primary: #2c3e50;
+  --text-secondary: #95a5a6;
+  --border-radius: 16rpx;
+  --box-shadow: 0 8rpx 24rpx rgba(0,121,215,0.08);
+}
+
+.upload-container {
+  padding: 40rpx;
+  background: #f5f7fa;
+  min-height: 100vh;
+}
+
+.upload-card {
+  background: #fff;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: 40rpx;
+}
+
+.upload-header {
+  font-size: 36rpx;
+  color: var(--text-primary);
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 40rpx;
+  position: relative;
+}
+
+.upload-area {
+  height: 400rpx;
+  background: #fafafa;
+  border: 2rpx dashed #d9d9d9;
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.upload-area:active {
+  background: #f0f9ff;
+  border-color: var(--primary-color);
+}
+
+.upload-icon {
+  width: 80rpx;
+  height: 80rpx;
+  margin-bottom: 24rpx;
+}
+
+.upload-tips {
+  font-size: 28rpx;
+  color: var(--text-secondary);
+  text-align: center;
+  line-height: 1.6;
+}
+
+.preview-image {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--border-radius);
+}
+
+.reupload-mask {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  font-size: 28rpx;
+  text-align: center;
+  padding: 16rpx;
+}
+
+.location-card {
+  margin-top: 40rpx;
+  padding: 24rpx;
+  background: #f8f9fa;
+  border-radius: var(--border-radius);
+  display: flex;
+  align-items: center;
+  border: 2rpx solid transparent;
+  transition: all 0.3s ease;
+}
+
+.location-card.error {
+  border-color: var(--error-color);
+  background: #fff2f0;
+}
+
+.location-icon {
+  width: 48rpx;
+  height: 48rpx;
+  margin-right: 24rpx;
+  flex-shrink: 0;
+}
+
+.location-info {
+  flex: 1;
+}
+
+.location-title {
+  display: block;
+  font-size: 28rpx;
+  color: var(--text-primary);
+  font-weight: 500;
+  margin-bottom: 8rpx;
+}
+
+.location-detail {
+  font-size: 26rpx;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.location-desc {
+  display: block;
+  font-size: 24rpx;
+  color: var(--text-secondary);
+}
+
+.refresh-btn {
+  width: 20rpx;
+  height: 64rpx;
+  padding: 0;
+  background: #fff !important;
+  border: 2rpx solid #e8e8e8 !important;
+  border-radius: 50%;
+  margin-left: 24rpx;
+}
+
+.refresh-icon {
+  width: 32rpx;
+  height: 32rpx;
+}
+
+.action-group {
+  margin-top: 60rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 30rpx;
+}
+
+.action-btn {
+  height: 88rpx;
+  line-height: 88rpx;
+  border-radius: 44rpx;
+  font-size: 32rpx;
+  transition: all 0.3s ease;
+}
+
+.action-btn.primary {
+  background: linear-gradient(135deg, var(--primary-color), #0063b5);
+  color:black;
+}
+
+.action-btn.secondary {
+  background: #fff;
+  color: var(--primary-color);
+  border: 2rpx solid var(--primary-color);
+}
+
+.action-btn[disabled] {
+  opacity: 0.6;
+  filter: grayscale(0.5);
+}
+
+.toast-message {
+  /* 保持与之前优化一致的toast样式 */
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20rpx); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.upload-card {
+  animation: fadeIn 0.4s ease;
+}
+
+.button-loading {
+  margin-top: 164rpx;
+  margin-bottom: 150rpx;
+  width: 400rpx;
+  border-radius: 30rpx;
+  background: #0079d7;
+  color: #fff;
+  line-height: 2;
+  font-size: 32rpx;
+  /* 保持与之前一致的加载动画 */
+}
+.btn {
+  margin-top: 164rpx;
+  margin-bottom: 150rpx;
+  width: 400rpx;
+  border-radius: 30rpx;
+  background: #0079d7;
+  color: #fff;
+  line-height: 2;
+  font-size: 32rpx;
+}
+
+.img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20rpx 0rpx;
+}
+
+.img image {
+  width: 100%;
+}
+
+.text {
+  margin: 10rpx 0rpx;
+  font-size: 28rpx;
+  line-height: 56rpx;
+}
+.red{
+  color: red;
+}
+.section{
+  padding: 20rpx 30rpx;
+  display: flex;
+  flex-direction: column;
+}
+.img_one{
+  width:390rpx;
+  height: 520rpx;
+  box-sizing: border-box;
+  margin: 0px auto;
+ 
+}
+.img_one image{
+  width: 100%;
+  height: 100%;
+}
+
+.section_one {
+ 
+  display: flex;
+  flex-direction: row;
+  padding: 0px 60rpx;
+  margin-top: 10rpx;
+}
+
+.section_one text {
+  line-height: 60rpx;
+  font-size: 28rpx;
+  color: #000;
+  margin-bottom: 10rpx;
+}
+
+.tit_info {
+  width: 220rpx;
+  text-align: left;
+}
+
+.tit_info text {
+  font-size: 28rpx;
+  color: #f0f;
+}
+
+.blod {
+  font-weight: bold;
+}
+
+.main_inpit {
+ 
+  font-size: 26rpx;
+  color: #8b8b8b;
+  width: 200rpx;
+  text-align: right;
+  margin-right: 15rpx;
+}
+
+.main_input {
+  width: 315rpx;
+  height:40rpx;
+  padding: 12rpx;
+  font-size: 26rpx;
+  color: #8b8b8b; 
+  text-align: left;
+}
+
+.btn_info {
+  margin-top: 30rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.btn_info button {
+  width: 400rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border: none;
+  background: #0079d7;
+  color: #fff;
+  font-size: 28rpx;
+  border-radius: 30rpx;
+  margin-top: 30rpx;
+}
+
+.btn_info picker {
+  width: 400rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border: none;
+  background: #e64340;
+  color: #fff;
+  font-size: 28rpx;
+  border-radius: 30rpx;
+  margin-top: 30rpx;
+  text-align: center;
+  margin: 0px auto;
+}
+
+.text_info {
+  margin-top: 30rpx;
+  text-align: center;
+  margin: 0px auto;
+  font-size: 28rpx;
+}
+
+.no_yizhi {
+  margin-top: 40rpx;
+}
+
+.section1 {
+  width: 470rpx;
+  height: 60rpx;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #0079d7;
+  border-radius: 26rpx;
+  margin: auto;
+  margin-top: 20rpx;
+ 
+  margin-bottom: 1 rpx;
+}
+
+.login_input {
+  font-size: 24rpx;
+  padding-top: 5rpx;
+  padding-bottom: 5rpx;
+  padding-left: 10rpx;
+  width: 315rpx;
+}
+
+.sxian {
+  margin-top: 20rpx;
+  border-bottom: 1 solid #0079d7;
+}
+.login_input1 {
+  font-size: 24rpx;
+  padding-top: 3rpx;
+  padding-bottom: 16rpx;
+  padding-left: 10rpx;
+  width: 315rpx;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #0079d7;
+  height: 40rpx;
+}

@@ -1,0 +1,103 @@
+/* pages/curriculum/curriculum.wxss */
+.week{
+	height: 80rpx;
+  margin: 20rpx 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32rpx;
+  color: #2c3e50;
+  background: #ffffff;
+  border-radius: 12rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.06);
+}
+.week-icon {
+  width: 36rpx;
+  height: 36rpx;
+  margin-left: 12rpx;
+}
+.cur_top{
+  background: #fafbfc;
+  border-bottom: 1rpx solid #ebeef5;
+	width: 100%;
+	height:100rpx;
+	display: flex;
+	flex-direction: row;
+}
+.cur_left{
+	width: 50rpx;
+	background-color: rgb(161, 161, 161);
+}
+
+.cur_top .day{
+  font-size: 28rpx;
+  color: #34495e;
+  padding: 16rpx 0;
+	width: 100rpx;
+	font-size: 30rpx;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.day .precise{
+  font-size: 24rpx;
+  color: #95a5a6;
+  margin-top: 4rpx;
+	font-size: smaller;
+	color: gray;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.cur_mid{
+	width: 100%;
+	height:150rpx;
+	display: flex;
+  flex-direction: row;
+  border-bottom: 1rpx solid #f3f4f5;
+}
+.cur_left2{
+  color: #ebeef5;
+  font-size: 26rpx;
+  background: #fafbfc;
+	width: 50rpx;
+	height:150rpx;
+	background-color: rgb(161, 161, 161);
+}
+.cur_mid .piece{
+	width: 80rpx;
+	height:120rpx;
+	padding: 30rpx 10rpx 5rpx 10rpx;
+	overflow: visible;
+	text-align:justify;
+	text-align-last:start;
+	letter-spacing: 0ch;
+	font-weight: bold;
+	font-size:22rpx;
+}
+.piece .title{
+	font-weight: bold;
+	font-size:27rpx;
+}
+.piece .content{
+	font-size:25rpx;
+}
+.piece {
+  margin: 4rpx;
+  padding: 8rpx;
+  font-size: 24rpx;
+  color: #2c3e50;
+  line-height: 1.4;
+  min-height: 120rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.piece:active {
+  transform: scale(0.98);
+  opacity: 0.9;
+}

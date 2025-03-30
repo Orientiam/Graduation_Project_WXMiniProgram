@@ -1,0 +1,47 @@
+
+<!-- 课程列表模块 -->
+<view class="course-container">
+  <!-- 模块标题 -->
+  <view class="course-header">已选课程</view>
+  
+  <!-- 表格区域 -->
+  <view class="course-table">
+    <!-- 表头 -->
+    <view class="course-table__header">
+      <text class="course-table__col_com">课程编号</text>
+      <text class="course-table__col_com">课程名称</text>
+      <text class="course-table__col_com">授课老师</text>
+      <text class="course-table__col_com">操作</text>
+    </view>
+
+    <!-- 数据列表 -->
+    <block wx:if="{{zc === 1}}">
+      <view class="course-table__body">
+        <view 
+          wx:for="{{jilu}}" 
+          wx:for-item="item"
+          wx:key="c_id"
+          class="course-table__row"
+        >
+          <text class="course-table__col_com">{{item.c_id}}</text>
+          <text class="course-table__col_com">{{item.c_name}}</text>
+          <text class="course-table__col_com">{{item.teacher}}</text>
+          <view class="course-table__col_but">
+              <button class="course-table__btn course-table__btn--danger" bindtap="xuanke" itemId="{{item.c_id}}">
+              <image src="/assets/icons/icons8-trash.png" class="course-table__btn-icon"/>
+                退课
+              </button>
+          </view>
+        </view>
+      </view>
+    </block>
+
+    <!-- 空状态提示 -->
+    <block wx:if="{{zc === 0}}">
+      <view class="course-empty">
+        <image src="/assets/icons/icons8-empty-50.png" class="course-empty__icon" />
+        <text class="course-empty__text">暂无已选课程</text>
+      </view>
+    </block>
+  </view>
+</view>

@@ -1,0 +1,47 @@
+<view class="title">个人信息详情</view>
+<form bindsubmit="formSubmit" bindreset="formReset">
+
+<view class="content">
+  <view class="input-group">
+    <text class="input-group-tit">姓名:</text>
+    <input class="input_name input" placeholder="请输入姓名" value="{{fullname}}" name="name" disabled="disabled"></input>
+  </view>
+  <view class="input-group">
+    <text class="input-group-tit">专业:</text>
+    <input class="input_name input" placeholder="请输入专业" value="{{sz.s_zy}}" name="zy"></input>
+  </view>
+  <view class="input-group">
+    <text class="input-group-tit">学院:</text>
+    <input class="input_name input" placeholder="请输入学院" value="{{sz.s_xy}}"  name="xy"></input>
+  </view>
+  <view class="input-group">
+    <text class="input-group-tit">年级:</text>
+    <input class="input_name input" placeholder="请输入年级" value="{{sz.s_nj}}" name="nj"></input>
+  </view>
+  <view class="input-group">
+    <text class="input-group-tit">班级:</text>
+    <input class="input_name input" placeholder="请输入班级" value="{{sz.s_bj}}"  name="bj"></input>
+  </view>
+  <view class="input-group">
+    <text class="input-group-tit">政治面貌:</text>
+    <input class="input_name input" placeholder="请输入政治面貌" value="{{sz.s_zzmm}}"   name="zzmm"></input>
+  </view>
+  <view class="input-group">
+    <text class="input-group-tit">年龄:</text>
+    <input class="input_name input" placeholder="请输入年龄" value="{{sz.s_nl}}"  name="age"></input>
+  </view>
+  <view class="input-group">
+    <text class="input-group-tit">职务:</text>
+    <input class="input_name input" placeholder="请输入职务" value="{{sz.s_zw}}" name="zw"></input>
+  </view>
+  <view class="input-group">
+    <text class="input-group-tit">性别:</text>
+    <input class="input_name input" placeholder="请输入性别" value="{{sz.s_xb}}" name="xb"></input>
+  </view>
+  <view class="input-group">
+    <text class="input-group-tit">联系电话:</text>
+    <input class="input_name input" placeholder="请输入联系电话" value="{{sz.s_lxdh}}" name="dh"></input>
+  </view>
+</view>
+
+</form>

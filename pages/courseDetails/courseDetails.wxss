@@ -1,0 +1,33 @@
+/* courseDetails.wxss */  
+.container {  
+  padding: 20px;  
+}  
+  
+.course-header {  
+  margin-bottom: 20px;  
+  text-align: center;  
+}  
+  
+.course-title {  
+  font-size: 24px;  
+  font-weight: bold;  
+}  
+  
+.course-time {  
+  font-size: 16px;  
+  color: #888;  
+}  
+  
+.course-description {  
+  margin-bottom: 20px;  
+}  
+  
+.back-button {  
+  width: 100%;  
+  padding: 10px;  
+  background-color: #1aad19;  
+  color: white;  
+  text-align: center;  
+  border-radius: 5px;  
+  margin-top: 20px;  
+}

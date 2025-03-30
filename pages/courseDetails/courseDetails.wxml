@@ -1,0 +1,14 @@
+<view class="container">  
+  <view class="course-header">  
+    <text class="course-title">{{course.courseName}}</text>  
+    <text class="course-time">{{course.startTime}} - {{course.endTime}}</text>  
+  </view>  
+  <view class="course-description">  
+    <!-- 这里可以添加更多的课程详情，比如教师、教室、课程简介等 -->  
+    <text>Teacher: {{course.teacher}}</text>  
+    <text>Classroom: {{course.classroom}}</text>  
+    <text>Description: {{course.description}}</text>  
+  </view>  
+  <!-- 如果需要，可以添加一个返回按钮 -->  
+  <button bindtap="navigateBack" class="back-button">Back</button>  
+</view>

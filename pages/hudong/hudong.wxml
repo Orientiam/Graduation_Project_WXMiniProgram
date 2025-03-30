@@ -1,0 +1,78 @@
+<view class="interaction-container">
+  <!-- 标题栏 -->
+  <view class="app-header">
+    <text class="header-title">课程互动</text>
+  </view>
+
+  <!-- 主体内容 -->
+  <view class="content-wrapper">
+    <!-- 课程选择模块 -->
+    <view class="course-selector">
+  <view class="selector-label">当前课程：</view>
+  <picker 
+    class="selector-picker"
+    name="wupin" 
+    bindchange="bindwupinChange" 
+    value="{{courseindex}}" 
+    range="{{jilu}}" 
+    range-key="c_name"
+  >
+    <view class="picker-content">
+      <text wx:if="{{courseindex === '-1'}}" class="selected-course">请选择课程</text>
+      <text wx:elif="{{courseindex !== '-1'}}" class="selected-course">{{jilu[courseindex].c_name}}</text>
+      <image class="arrow-icon" src="/assets/icons/icons8-arrow-down-50.png"/>
+    </view>
+  </picker>
+</view>
+
+    <!-- 输入区域 -->
+    <view class="input-container">
+      <view class="input-label">互动内容</view>
+      <textarea 
+        class="input-field"
+        name="msg" 
+        id="msg" 
+        placeholder="请输入课程问题或建议..."
+        placeholder-class="placeholder"
+        bindinput="handleInput"
+        maxlength="500"
+        auto-height
+      />
+      <view class="character-counter">{{inputLength}}/500</view>
+    </view>
+  </view>
+
+  <!-- 操作栏 -->
+  <!--view class="action-bar safe-area-inset-bottom">
+    <button 
+      class="submit-btn {{disabled ? 'disabled' : ''}}"
+      bindtap="init"
+      disabled="{{disabled}}"
+      hover-class="btn-hover"
+    >
+      <image 
+        class="loading-icon" 
+        src="/assets/icons/icons8-loading.gif" 
+        wx:if="{{isSubmitting}}"
+      />
+      {{isSubmitting ? '提交中...' : '提交反馈'}}
+    </button>
+  </view-->
+  <!-- 修改操作栏部分 -->
+<view class="action-bar safe-area-inset-bottom">
+  <button 
+    class="submit-btn {{disabled ? 'disabled' : ''}}"
+    bindtap="init"
+    disabled="{{disabled}}"
+    hover-class="btn-hover"
+    style="background: #0079d7; box-shadow: 0 4rpx 16rpx rgba(0,121,215,0.3);"
+  >
+  <image 
+        class="loading-icon" 
+        src="/assets/icons/icons8-loading.gif" 
+        wx:if="{{isSubmitting}}"
+      />
+    {{isSubmitting ? '提交中...' : '发送弹幕'}}
+  </button>
+</view>
+</view>
