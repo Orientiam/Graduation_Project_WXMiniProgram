@@ -27,7 +27,7 @@
           <text class="course-table__col_com">{{item.c_name}}</text>
           <text class="course-table__col_com">{{item.teacher}}</text>
           <view class="course-table__col_but">
-              <button class="course-table__btn course-table__btn--danger" bindtap="xuanke" itemId="{{item.c_id}}">
+              <button class="course-table__btn course-table__btn--danger" bind:tap="xuanke" data-item-id="{{item.c_id}}">
               <image src="/assets/icons/icons8-trash.png" class="course-table__btn-icon"/>
                 退课
               </button>

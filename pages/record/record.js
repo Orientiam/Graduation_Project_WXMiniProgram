@@ -11,7 +11,7 @@ Page({
     user: wx.getStorageSync('username'),
     loading: false,
     hasMore: true,
-    error: null,      // 错误状态
+    error: null,  // 错误状态
     filters: {
       statusColor: function (result) {
         const statusMap = {

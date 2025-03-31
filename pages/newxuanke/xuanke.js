@@ -66,9 +66,10 @@ handleConfirm() {
       title: `成功${successCount}门，失败${errorCount}门`,
       icon: 'none'
     });
-    
     // 重新加载数据保持同步
-    this.init();
+    setTimeout(() => { this.init(); }, 300);
+    //将select重置为0
+    this.setData({ selectedCount: 0 }); // 新增这一行
   }).catch(() => {
     wx.showToast({ title: '部分操作失败', icon: 'none' });
   }).finally(() => {
@@ -196,16 +197,11 @@ xuanke(e) {
             selected: true,
             disabled: true
           };
-          
-          that.setData({
-            jilu: newList,
-            selectedCount: 0,
-            disabled:false
-          });
         }
         wx.showToast({ title: '选课成功' });
       } else {
         wx.showToast({ title: res.data.data || '操作失败', icon: 'none' });
+        
       }
     },
     fail() {
